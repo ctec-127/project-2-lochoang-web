@@ -25,8 +25,42 @@ if (basename($_SERVER['PHP_SELF']) == 'create-record.php') {
     <label class="col-form-label" for="last">Last Name</label>
     <input class="form-control" type="text" id="last" name="last" value="<?= isset($last) ? $last : null ?>">
     <br>
-    <label class="col-form-label" for="id">Student ID </label>
+    <label class="col-form-label" for="id">Student ID</label>
     <input class="form-control" type="number" id="id" name="student_id" value="<?= isset($student_id) ? $student_id : null ?>">
+    <br>
+    <!-- //Degree Program -->
+    <label class="col-form-label" for="degreeprogram">Degree Program</label>
+    <select class="form-select" aria-label="Default select" id="degreeprogram" name="degreeprogram">
+        <option value="Undeclared" <?= $degree_program == "Undeclared" ? "selected" : null ?>>Undeclared </option>
+        <option value="AAT Web Development" <?= $degree_program == "AAT Web Development" ? "selected" : null ?>>AAT Web Development </option>
+        <option value="AAT Digital Media Arts" <?= $degree_program == "AAT Digital Media Arts" ? "selected" : null ?>>AAT Digital Media Arts </option>
+        <option value="BAS Cybersecutity" <?= $degree_program == "BAS Cybersecutity" ? "selected" : null ?>>BAS Cybersecutity </option>
+        <option value="ATT Automotive" <?= $degree_program == "ATT Automotive" ? "selected" : null ?>>ATT Automotive </option>
+        <option value="AAT Welding Tehcnologies" <?= $degree_program == "AAT Welding Tehcnologies" ? "selected" : null ?>>AAT Welding Tehcnologies </option>
+    </select>
+
+    <!-- //Financial Aid
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="financial_aid" value="1" id="fin_aid_yes"> <?= $financial_aid_yes ? 'checked' : null ?>>
+        <label class="form-check-label" for="fin_aid_yes">
+        Yes
+        </label>
+    </div>
+    <div class="form-check">
+    <input class="form-check-input" type="radio" name="financial_aid" value="0" id="fin_aid_not"> <?= $financial_aid_no ? 'checked' : null ?>>
+        <label class="form-check-label" for="fin_aid_no">
+        NO
+    </label>
+    </div>
+    <div class="mt-3">
+        <button type="submit" class="btn btn-primary mb-3">Submit</button>
+    </div> -->
+
+
+
+    <!-- //GPA -->
+    <label class="col-form-label" for="gpa">GPA</label>
+    <input class="form-control" type="number" id="gpa" name="gpa" min="0" max="4" step="0.01" value="<?= isset($gpa) ? $gpa : null ?>">
     <br>
     <label class="col-form-label" for="email">Email</label>
     <input class="form-control" type="text" id="email" name="email" value="<?= isset($email) ? $email : null ?>">
