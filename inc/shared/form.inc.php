@@ -28,6 +28,7 @@ if (basename($_SERVER['PHP_SELF']) == 'create-record.php') {
     <label class="col-form-label" for="id">Student ID</label>
     <input class="form-control" type="number" id="id" name="student_id" value="<?= isset($student_id) ? $student_id : null ?>">
     <br>
+
     <!-- //Degree Program -->
     <label class="col-form-label" for="degreeprogram">Degree Program</label>
     <select class="form-select" aria-label="Default select" id="degreeprogram" name="degreeprogram">
@@ -38,27 +39,8 @@ if (basename($_SERVER['PHP_SELF']) == 'create-record.php') {
         <option value="ATT Automotive" <?= $degree_program == "ATT Automotive" ? "selected" : null ?>>ATT Automotive </option>
         <option value="AAT Welding Tehcnologies" <?= $degree_program == "AAT Welding Tehcnologies" ? "selected" : null ?>>AAT Welding Tehcnologies </option>
     </select>
-
-    <!-- //Financial Aid
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="financial_aid" value="1" id="fin_aid_yes"> <?= $financial_aid_yes ? 'checked' : null ?>>
-        <label class="form-check-label" for="fin_aid_yes">
-        Yes
-        </label>
-    </div>
-    <div class="form-check">
-    <input class="form-check-input" type="radio" name="financial_aid" value="0" id="fin_aid_not"> <?= $financial_aid_no ? 'checked' : null ?>>
-        <label class="form-check-label" for="fin_aid_no">
-        NO
-    </label>
-    </div>
-    <div class="mt-3">
-        <button type="submit" class="btn btn-primary mb-3">Submit</button>
-    </div> -->
-
-
-
-    <!-- //GPA -->
+    <br>
+    <!-- //GPA, Email, Phone -->
     <label class="col-form-label" for="gpa">GPA</label>
     <input class="form-control" type="number" id="gpa" name="gpa" min="0" max="4" step="0.01" value="<?= isset($gpa) ? $gpa : null ?>">
     <br>
@@ -68,7 +50,31 @@ if (basename($_SERVER['PHP_SELF']) == 'create-record.php') {
     <label class="col-form-label" for="phone">Phone</label>
     <input class="form-control" type="text" id="phone" name="phone" value="<?= isset($phone) ? $phone : null ?>">
     <br>
+    <!-- //Financial Aid -->
+    <p>Financial Aid</p>
+    <div class="for-check">
+        <input class="form-check-input" type="radio" name="financial_aid" value="1" id="fin_aid_yes" <?= $financial_aid_yes ? 'checked' : null ?>>
+        <label class="form-check-label" for="fin_aid_yes">
+            Yes
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="financial_aid" value="0" id="fin_aid_no" <?= $financial_aid_no ? 'checked' : null ?>>
+        <label class="form-check-label" for="fin_aid_no">
+            No
+        </label>
+    </div>
+
     <br>
     <a href="display-records.php">Cancel</a>&nbsp;&nbsp;
+
     <button class="btn btn-primary" type="submit"><?= $button_label ?></button>
+    <input type="hidden" name="id" value="<?= isset($id) ? $id : null  ?>">
+    <br>
+
+
+
+
+
+
 </form>

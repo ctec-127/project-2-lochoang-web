@@ -22,6 +22,7 @@
                 $error_bucket = [];
                 $degree_program = null;
 
+
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     // First insure that all required fields are filled in
                     if (empty($_POST["first"])) {
@@ -42,7 +43,7 @@
 
                     $degree_program = $_POST["degreeprogram"];
 
-                    $gpa = $_POSt["gpa"];
+                    $gpa = $_POST["gpa"];
                     if (empty($_POST["gpa"])) {
                         $gpa = 0;
                     } else {
@@ -99,25 +100,7 @@
                     }
                 }
                 ?>
-                <form action="sticky-radio.php" method="post">
-                    <!-- Bootstrap Radio Button Format -->
-                    <p>Financial Aid</p>
-                    <div class="for-check">
-                        <input class="form-check-input" type="radio" name="financial_aid" value="1" id="fin_aid_yes" <?= $financial_aid_yes ? 'checked' : null ?>>
-                        <label class="form-check-label" for="fin_aid_yes">
-                            Yes
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="financial_aid" value="0" id="fin_aid_no" <?= $financial_aid_no ? 'checked' : null ?>>
-                        <label class="form-check-label" for="fin_aid_no">
-                            No
-                        </label>
-                    </div>
-                    <div class="mt-3">
-                        <button type="submit" class="btn btn-primary mb-3">Submit</button>
-                    </div>
-                </form>
+
             </div>
         </div>
     </div>
