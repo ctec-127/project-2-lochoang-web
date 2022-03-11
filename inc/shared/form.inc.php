@@ -50,6 +50,12 @@ if (basename($_SERVER['PHP_SELF']) == 'create-record.php') {
     <label class="col-form-label" for="phone">Phone</label>
     <input class="form-control" type="text" id="phone" name="phone" value="<?= isset($phone) ? $phone : null ?>">
     <br>
+    <br>
+    <!-- //graduation -->
+    <label class="col-form-label" for="graduation_date">Graduation Date</label>
+    <input class="form-control" id="graduation_date" type="date" name="graduation_date" value="<?= isset($graduation_date) ? $graduation_date : null ?>">
+    <br>
+    <br>
     <!-- //Financial Aid -->
     <p>Financial Aid</p>
     <div class="for-check">

@@ -16,11 +16,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // If we have no errors than we can try and insert the data
     if (count($error_bucket) == 0) {
-        $sql = "UPDATE $db_table SET first_name = :first, last_name = :last, emaiL = :email, phone=:phone, gpa = :gpa, degree_program = :degree_program, financial_aid = :financial_aid";
+        $sql = "UPDATE $db_table SET first_name = :first, last_name = :last, emaiL = :email, phone=:phone, gpa = :gpa, degree_program = :degree_program, financial_aid = :financial_aid, graduation_date = :graduation_date";
         $sql .= " WHERE id = :id LIMIT 1";
 
         $stmt = $db->prepare($sql);
-        $stmt->execute(["first" => $first, "last" => $last, "email" => $email, "phone" => $phone, "gpa" => $gpa, "degree_program" => $degree_program, "financial_aid" => $financial_aid, "id" => $id]);
+        $stmt->execute(["first" => $first, "last" => $last, "email" => $email, "phone" => $phone, "gpa" => $gpa, "degree_program" => $degree_program, "financial_aid" => $financial_aid, "id" => $id, "graduation_date" => $graduation_date]);
 
         if ($stmt->rowCount() <= 1) {
             header("Location: display-records.php?message=The record for $first has been created.");
@@ -45,6 +45,7 @@ if ($stmt->rowCount() == 1) {
     $gpa = $row->gpa;
     $email = $row->email;
     $phone = $row->phone;
+    $graduation_date = $row->graduation_date;
     // Get the value 1 or 0 for Financial Aid
     $financial_aid = $row->financial_aid;
     if ($financial_aid == 1) {

@@ -64,11 +64,11 @@
                     // If we have no errors than we can try and insert the data
                     if (count($error_bucket) == 0) {
                         // Time for some SQL
-                        $sql = "INSERT INTO $db_table (first_name,last_name,email,phone,student_id,gpa,degree_program)";
-                        $sql .= "VALUES (:first,:last,:email,:phone,:student_id,:gpa,:degree_program)";
+                        $sql = "INSERT INTO $db_table (first_name,last_name,email,phone,student_id,gpa,degree_program, financial_aid, graduation_date)";
+                        $sql .= "VALUES (:first,:last,:email,:phone,:student_id,:gpa,:degree_program,:financial_aid,:graduation_date)";
 
                         $stmt = $db->prepare($sql);
-                        $stmt->execute(["first" => $first, "last" => $last, "email" => $email, "phone" => $phone, "student_id" => $student_id, "gpa" => $gpa, "degree_program" => $degree_program]);
+                        $stmt->execute(["first" => $first, "last" => $last, "email" => $email, "phone" => $phone, "student_id" => $student_id, "gpa" => $gpa, "degree_program" => $degree_program, "financial_aid" => $financial_aid, "graduation_date" => $graduation_date]);
 
                         if ($stmt->rowCount() == 0) {
                             echo '<div class="alert alert-danger" role="alert">

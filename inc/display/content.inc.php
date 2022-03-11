@@ -36,8 +36,11 @@ if (isset($_GET["filter"])) {
         $sql = "SELECT * FROM $db_table ORDER BY gpa DESC";
     } elseif ($orderby == "degree_program") {
         $sql = "SELECT * FROM $db_table ORDER BY degree_program ASC";
+    } elseif ($orderby == "financial_aid") {
+        $sql = "SELECT * FROM $db_table ORDER BY financial_aid ASC";
+    } elseif ($orderby == "graduation_date") {
+        $sql = "SELECT * FROM $db_table ORDER BY graduation_date ASC";
     }
-
 
     $stmt = $db->prepare($sql);
     $stmt->execute();

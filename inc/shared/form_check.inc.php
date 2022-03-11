@@ -39,6 +39,8 @@ if (empty($_POST["phone"])) {
 } else {
     $phone = $_POST["phone"];
 }
+
+
 //Financial aid
 $financial_aid_yes = true;
 $financial_aid_no = false;
@@ -56,4 +58,11 @@ if (isset($_POST["financial_aid"])) {
     }
 } else {
     echo '<div class="alert alert-warning">Please select a value for Financial Aid</div>';
+}
+
+//Graduation Date
+if (!empty($_POST["graduation_date"])) {
+    $graduation_date = $_POST["graduation_date"];
+} else {
+    $graduation_date = null;
 }
